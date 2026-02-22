@@ -451,15 +451,11 @@ install_darkssh() {
 
 install_404ssh() {
     draw_simple_box "${BLUE}Installing 404-SSH Manager...${NC}" $BLUE
-    if command -v wget &> /dev/null; then
-        wget https://raw.githubusercontent.com/nyeinkokoaung404/ssh-manger/main/hehe
-        chmod +x hehe
-        ./hehe
+    if command -v curl &> /dev/null; then
+        curl -L -o install.sh "https://raw.githubusercontent.com/nyeinkokoaung404/channel404-manager/main/install.sh" && chmod +x install.sh && sudo ./install.sh && rm install.sh
     else
-        apt install wget -y
-        wget https://raw.githubusercontent.com/nyeinkokoaung404/ssh-manger/main/hehe
-        chmod +x hehe
-        ./hehe
+        apt install curl -y
+        curl -L -o install.sh "https://raw.githubusercontent.com/nyeinkokoaung404/channel404-manager/main/install.sh" && chmod +x install.sh && sudo ./install.sh && rm install.sh
     fi
 }
 
